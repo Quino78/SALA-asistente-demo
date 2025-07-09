@@ -2,7 +2,6 @@ streamlit
 streamlit_mic_recorder
 requests
 beautifulsoup4
-re
 python-dotenv
 groq
 pypdf
