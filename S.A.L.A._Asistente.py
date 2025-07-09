@@ -20,15 +20,6 @@ import pandas as pd
 from PIL import Image
 import pytesseract
 from gtts import gTTS  # Para generar audio en español
-from conversor import (
-    texto_a_audio,
-    texto_a_video,
-    audio_a_video,
-    video_a_audio,
-    texto_desde_pdf_word
-)
-
-
 
 # Configuración de logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -940,29 +931,6 @@ elif st.session_state.seccion_seleccionada == "Conversión Multimedia":
         "Video → Audio",
         "PDF/Word → Texto"
     ])
-
-    if opcion == "Texto → Audio":
-        texto = st.text_area("Escribe o pega el texto:")
-        if st.button("Generar Audio"):
-            if texto.strip():
-                ruta_audio = texto_a_audio(texto)
-                st.audio(ruta_audio)
-                with open(ruta_audio, "rb") as f:
-                    st.download_button("Descargar audio", f, file_name="audio.mp3")
-            else:
-                st.warning("Debes ingresar un texto.")
-
-    elif opcion == "Texto → Video":
-        texto = st.text_area("Escribe el texto:")
-        if st.button("Generar Video"):
-            if texto.strip():
-                ruta_audio = texto_a_audio(texto)
-                ruta_video = texto_a_video(texto, ruta_audio)
-                st.video(ruta_video)
-                with open(ruta_video, "rb") as f:
-                    st.download_button("Descargar video", f, file_name="video.mp4")
-            else:
-                st.warning("Debes ingresar un texto.")
 
     elif opcion == "Audio → Video":
         audio_file = st.file_uploader("Sube un archivo de audio (.mp3)", type=["mp3"])
