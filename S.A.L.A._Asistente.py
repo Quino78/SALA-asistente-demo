@@ -932,7 +932,7 @@ elif st.session_state.seccion_seleccionada == "Conversión Multimedia":
         "PDF/Word → Texto"
     ])
 
-    elif opcion == "Audio → Video":
+    if opcion == "Audio → Video":
         audio_file = st.file_uploader("Sube un archivo de audio (.mp3)", type=["mp3"])
         texto_opcional = st.text_input("Texto opcional que quieres mostrar en el video:")
 
