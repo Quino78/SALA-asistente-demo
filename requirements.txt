@@ -16,3 +16,4 @@ gtts
 moviepy
 tenacity
 openpyxl
+langchain-text-splitters
